@@ -1,11 +1,14 @@
 import React from 'react';
-import './App.css';
+import './css/App.css';
+import { Route, Switch, Router } from 'react-router-dom';
+
+import Main from './pages';
 
 function App() {
   return (
-    <div>
-      <h1>Netflix clone app</h1>
-    </div>
+    <Switch>
+      <Route path="/" component={Main} />
+    </Switch>
   );
 }
 
