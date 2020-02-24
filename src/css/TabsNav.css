@@ -1,0 +1,39 @@
+/* tab nav 1 */
+
+.tab-icon-door {
+    width: 2.81rem;
+    height: 2.81rem;
+    fill: var(--main-grey);
+
+}
+
+
+.tab-icon-devices {
+    width: 9.68rem;
+    height: 8.688rem;
+    fill: var(--main-grey);
+}
+
+.tab-icon-price {
+    width: 4.378rem;
+    height: 4.38rem;
+    fill: var(--main-grey);
+}
+
+
+.tabs {
+    padding-top: 1rem;
+
+}
+
+.tab-nav-container {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    text-align: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem;
+    list-style: none;
+    color: var(--main-grey);
+    margin: 0 12%;
+}
