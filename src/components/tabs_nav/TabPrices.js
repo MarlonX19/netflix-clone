@@ -6,7 +6,7 @@ export default function TabPrices() {
     return (
         <svg
             xmlns="http://www.w3.org/2000/svg"
-            class="tab-icon-price"
+            className="tab-icon-price"
             viewBox="0 0 63 48"
             focusable="true">
             <title />

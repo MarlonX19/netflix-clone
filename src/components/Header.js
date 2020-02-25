@@ -6,6 +6,7 @@ import { ic_keyboard_arrow_right } from 'react-icons-kit/md/ic_keyboard_arrow_ri
 
 import { Button } from './Button';
 import logo from '../assets/svg/logo.svg';
+import { generateMedia } from "styled-media-query";
 
 
 class Header extends Component {
@@ -31,6 +32,16 @@ class Header extends Component {
 
 export default Header;
 
+
+const customMedia = generateMedia({
+    lgDesktop: '1350px',
+    mdDesktop: '1150px',
+    tablet: '960px',
+    smTablet: '740px'
+})
+
+
+
 //Logo
 const Logo = styled.img`
     width: 10rem;
@@ -39,9 +50,12 @@ const Logo = styled.img`
     top: 25%;
     left: 10%;
     transform: translate(-50%, -50%);
-    `;
-
-
+    ${customMedia.lessThan('tablet')`
+        left: 15%;
+        width: 6rem;
+        height: 2.6rem;
+    `}
+`;
 
 //Header container
 const HeaderComponent = styled.div`
@@ -61,6 +75,10 @@ const HeaderComponent = styled.div`
         &:hover {
             background: var(--main-red-hover);
         }
+        ${customMedia.lessThan('smTablet')`
+            marginTop: 1.25rem;
+            right: 5%;
+        `}
     }
 
     .header-top {
@@ -79,13 +97,36 @@ const HeaderComponent = styled.div`
         text-align: center;
         flex-direction: column;
         z-index: 1;
+        ${customMedia.lessThan('smTablet')`
+            display: grid;
+            grid-template-rows: repeat(3, 60px);
+            margin-top: 8rem;
+        `}
     }
 
+    .main-offer-btn {
+        ${customMedia.lessThan('lgDesktop')`
+            margin: 0 33%;
+            font-size: 1.5rem;
+        `}
 
+        ${customMedia.lessThan('mdDesktop')`
+            margin: 0 29%;
+            font-size: 1.1rem;
+        `}
+
+        ${customMedia.lessThan('tablet')`
+            margin: 0 25%;
+            font-size: 1.0rem;
+        `}
+    }
 
     .Icon svg {
-        vertical-align: bottom;
+        vertical-align: bottom !important;
         margin-left: 1.5rem;
+        ${customMedia.lessThan('mdDesktop')`
+            display: none !important;
+        `}
 
     }
 `;
@@ -95,6 +136,9 @@ const Title = styled.h1`
     font-size: 5rem;
     font-weight: 700;
     line-height: 1.1rem;
+    ${customMedia.lessThan('tablet')`
+        font-size: 2.6rem;
+    `}
     
 `;
 
@@ -104,4 +148,8 @@ const Subtitle = styled.h2`
     line-height: 1.25rem;
     margin: 1rem 0 2rem;
     text-transform: uppercase;
+    ${customMedia.lessThan('smTablet')`
+        margin: 0;
+        font-size: 1.4rem;
+    `}
 `;

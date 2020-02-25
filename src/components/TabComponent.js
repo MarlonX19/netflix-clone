@@ -16,20 +16,25 @@ class TabComponents extends Component {
     render() {
         return (
             <div>
-                <Tabs className='tabs' selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex: tabIndex})} >
+                <Tabs className='tabs' selectedIndex={this.state.tabIndex} onSelect={tabIndex => this.setState({ tabIndex: tabIndex })} >
                     <TabList className='tab-nav-container'>
                         <Tab className={`${this.state.tabIndex === 0 ? 'tab-selected active' : null}`} >
                             <TabDoor />
-                            <p>No commitments</p>
-                            <p style={{ marginBottom: '1.85rem'}}>Cancel at any moment</p>
+                            <p className='lgScreen' style={{ marginTop: '1rem' }}>No commitments</p>
+                            <p className='lgScreen' >Cancel at any moment</p>
+                            <br />
+                            <span  style={{ marginTop: '0.4rem' }} className='mdScreen'>Cancel</span>
                         </Tab>
                         <Tab className={`${this.state.tabIndex === 1 ? 'tab-selected active' : null}`}>
                             <TabDevices />
-                            <p style={{ marginTop: '-5rem'}} >Watch anywhere</p>
+                            <p className='lgScreen' style={{ marginTop: '-5rem' }} >Watch anywhere</p>
+                            <span className='mdScreen' style={{ marginTop: '-5rem' }}>Devices</span>
                         </Tab>
                         <Tab className={`${this.state.tabIndex === 2 ? 'tab-selected active' : null}`}>
                             <TabPrices />
-                            <p>Pick your price</p>
+                            <p className='lgScreen'>Pick your price</p>
+                            <br />
+                            <span className='mdScreen'>Prices</span>
                         </Tab>
                     </TabList>
                     <TabPanel>
