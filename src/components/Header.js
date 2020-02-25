@@ -137,7 +137,7 @@ const Title = styled.h1`
     font-weight: 700;
     line-height: 1.1rem;
     ${customMedia.lessThan('tablet')`
-        font-size: 2.6rem;
+        font-size: 2.1rem;
     `}
     
 `;
