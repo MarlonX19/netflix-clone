@@ -15,7 +15,7 @@ class Header extends Component {
             <HeaderComponent className='header-container'>
                 <div className='header-top'>
                     <Logo src={logo} />
-                    <NavLink to="/signIn" className='signIn-btn'>Sign in</NavLink>
+                    <NavLink to="/login" className='signIn-btn'>Sign in</NavLink>
                 </div>
                 <div className='header-content'>
                     <Title>See what's new</Title>
