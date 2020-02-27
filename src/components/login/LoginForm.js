@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { generateMedia } from "styled-media-query";
 
 
 export default class LoginForm extends Component {
@@ -11,28 +12,33 @@ export default class LoginForm extends Component {
                     <form>
                         <h1 style={{ textAlign: 'center' }}>Sign in</h1>
                         <div className='input-container'>
-                            <input className='input-empty' type='email' required />
-                            <label>E-mail or phone number</label>
+                            <input className='input-empty' type='email' placeholder='Email or phone' required />
                         </div>
                         <div className='input-container'>
-                            <input className='input-empty' type='password' required />
-                            <label>Password</label>
+                            <input className='input-empty' type='password' placeholder='Password' required />
                         </div>
                         <div className='input-container'>
                             <Button type='submit'>Sign in</Button>
                         </div>
-                            <label className='checkbox-container' >
-                                Remember me
+                        <label className='checkbox-container' >
+                            Remember me
                             <input type='checkbox' checked />
-                                <span className='checkmark'></span>
-                            </label>
-                            <Link to='/' className='need-help' >Need help?</Link>
+                            <span className='checkmark'></span>
+                        </label>
+                        <Link to='/' className='need-help' >Need help?</Link>
                     </form>
                 </div>
             </FormContainer>
         )
     }
 }
+
+const customMedia = generateMedia({
+    lgDesktop: '1350px',
+    mdDesktop: '1150px',
+    tablet: '960px',
+    smTablet: '740px'
+})
 
 // FormContainer style
 const FormContainer = styled.div`
@@ -47,12 +53,21 @@ const FormContainer = styled.div`
       width: 28.5rem;
       height: 25rem;
       padding: 4rem;
+      ${customMedia.lessThan('tablet')`
+        width: 20rem;
+        height: 20rem;
+        padding: 4rem;
+        margin: 5% 5%;
+    `}
   }
 
   .input-container {
       display: grid;
       grid-template-columns: 1fr;
       margin-top: 1.2rem;
+      ${customMedia.lessThan('tablet')`
+        margin-top: 0.8rem;
+  `}
   }
 
   .input-empty {
@@ -63,27 +78,17 @@ const FormContainer = styled.div`
       height: 3rem;
       padding: 0.9rem 1.25rem;
       outline: none;
+      ${customMedia.lessThan('tablet')`
+        height: 2rem;
+        padding: 0.8rem 0.9rem;
+    `}
   }
 
-  form div label {
-      position: absolute;
-      top: 0.625rem;
-      left: 1.25rem;
-      pointer-events: none;
-      color: #8a8a8a;
-      font-size: 1rem;
-      transition: transform 150ms ease-out, font-size 150ms ease-out;
-  }
 
   form div {
       position: relative;
   }
 
-  input:focus ~ label {
-      top: 0.4375rem;
-      margin-bottom: 0.8rem;
-      font-size: 0.65rem;
-  }
 
     .checkbox-container {
      margin-left: 0.75rem;
@@ -91,6 +96,11 @@ const FormContainer = styled.div`
      position: relative;
      font-size: 0.9rem;
      cursor: pointer;
+     ${customMedia.lessThan('tablet')`
+     margin-left: 0.55rem;
+     padding-left: 1.2rem;
+     font-size: 0.6rem;
+    `}
  }
 
     .checkbox-container input {
@@ -106,6 +116,10 @@ const FormContainer = styled.div`
     top: 0;
     border-radius: 0.1rem;
     position: absolute;
+    ${customMedia.lessThan('tablet')`
+        width: 0.8rem;
+        height: 0.8rem;
+   `}
 }
 
 .checkbox-container input:checked + .checkmark:after {
@@ -128,6 +142,11 @@ const FormContainer = styled.div`
     &:hover {
         color: #fff;
     }
+
+    ${customMedia.lessThan('tablet')`
+        margin-left: 2rem;
+        font-size: 0.6rem;
+    `}
 }
 
 `;
@@ -145,6 +164,6 @@ const Button = styled.button`
   transition: opacity 0.2s ease-in;
   cursor: pointer;
   text-decoration: none;
-  margin: 1rem 0;
+  margin: 0.5rem 0;
 
 `;

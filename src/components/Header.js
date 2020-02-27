@@ -40,8 +40,6 @@ const customMedia = generateMedia({
     smTablet: '740px'
 })
 
-
-
 //Logo
 const Logo = styled.img`
     width: 10rem;

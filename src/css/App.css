@@ -76,3 +76,11 @@ a {
     z-index: 1;
 }
 
+@media (max-width: 850px){
+    .header-top {
+        position: relative;
+        height: 4rem;
+        z-index: 1;
+        margin: 7% 10%;
+    }
+}
